@@ -8,7 +8,7 @@ var options = function () {
 
 TestCollection.attachSchema(new SimpleSchema({
     test1: {
-        type: [String],
+        type: String,
         label: "Test1",
         optional: true,
         autoform: {
