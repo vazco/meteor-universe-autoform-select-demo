@@ -1,0 +1,86 @@
+<head>
+    <title>Universe Autoform Select</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-sm-12">
+            <h1>Universe Autoform Select</h1>
+
+            {{> hello}}
+        </div>
+    </div>
+</body>
+
+<template name="hello">
+
+    <h3>Value {{testObject.test1}}</h3>
+
+    {{log testObject}}
+
+    <hr />
+
+    <h4>Select-multiple</h4>
+    {{#autoForm id="field1" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="test1" type="select-multiple"}}
+
+    {{/autoForm}}
+
+
+    <hr/>
+
+
+    <h4>Select2</h4>
+    {{#autoForm id="field2" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="test1" type="select2" multiple="true"}}
+
+    {{/autoForm}}
+
+    <hr/>
+
+
+    <h4 class="text-info">vazcoSelect</h4>
+
+
+    {{#autoForm id="field3" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="test1" multiple="true"}}
+
+    {{/autoForm}}
+
+
+    <!--<h3 class="text-primary">multiple</h3>-->
+
+    {{!-- #autoForm id="field7b" collection="TestCollection" type="update" doc=testObject autosave=true}}
+
+        {{> afFormGroup name="field7" placeholder="Field7"}}
+
+    {{/autoForm --}}
+    <br /><br /><br />
+
+
+{{!--
+    <h3 class="text-primary">dataProvider: "{{testObject.field8}}"</h3>
+
+    {{#autoForm collection="TestCollection" type="update" doc=testObject}}
+
+        {{> afFormGroup name="field8" dataProvider="countries" placeholder="Field8"}}
+
+    {{/autoForm}}
+    <br /><br /><br />
+--}}
+
+{{!--
+    <h3 class="text-primary">selectizeCreate: "{{testObject.field9}}"</h3>
+
+    {{#autoForm collection="TestCollection" type="update" doc=testObject}}
+
+        {{> afFormGroup name="field9" selectizeCreate=true placeholder="Field9"}}
+
+    {{/autoForm}}
+    <br /><br /><br />
+--}}
+
+</template>

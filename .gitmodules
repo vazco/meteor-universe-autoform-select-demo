@@ -1,0 +1,9 @@
+[submodule "packages/universe-autoform-select"]
+	path = packages/universe-autoform-select
+	url = https://github.com/vazco/meteor-universe-autoform-select.git
+[submodule "packages/meteor-autoform"]
+	path = packages/meteor-autoform
+	url = https://github.com/aldeed/meteor-autoform.git
+[submodule "packages/meteor-autoform-select2"]
+	path = packages/meteor-autoform-select2
+	url = https://github.com/aldeed/meteor-autoform-select2.git

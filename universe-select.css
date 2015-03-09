@@ -1,0 +1,7 @@
+/* CSS declarations go here */
+
+[contenteditable]{
+    border:1px solid #ccc;
+    padding:3px 5px;
+    width:300px;
+}
