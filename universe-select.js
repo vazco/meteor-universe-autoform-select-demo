@@ -7,14 +7,34 @@ var options = function () {
 
 
 TestCollection.attachSchema(new SimpleSchema({
-    test1: {
+    single: {
         type: String,
-        label: "Test1",
+        label: "single",
         optional: true,
         autoform: {
             afFieldInput: {
-                //type: "select-multiple",
-                //type: 'select2',
+                type: "universe-select",
+                options: options
+            }
+        }
+    },
+    multiple: {
+        type: [String],
+        label: "multiple",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "universe-select",
+                options: options
+            }
+        }
+    },
+    create: {
+        type: [String],
+        label: "create",
+        optional: true,
+        autoform: {
+            afFieldInput: {
                 type: "universe-select",
                 options: options
             }
@@ -25,7 +45,13 @@ TestCollection.attachSchema(new SimpleSchema({
 if (Meteor.isServer) {
     Meteor.startup(function () {
         if (!TestCollection.find().count()) {
-            TestCollection.insert({test1: 'Test1', test2: 'Test2'});
+            TestCollection.insert({single: 'Test1', test2: 'Test2'});
+        }
+    });
+
+    Meteor.methods({
+        insertOption: function (label, value) {
+            OptionsCollection.insert({label: label, value: value});
         }
     });
 }
@@ -34,9 +60,6 @@ if (Meteor.isClient) {
     Template.hello.helpers({
         testObject: function () {
             return TestCollection.findOne();
-        },
-        log: function (obj) {
-            console.log('!!!! LOG', obj);
         }
     });
 }

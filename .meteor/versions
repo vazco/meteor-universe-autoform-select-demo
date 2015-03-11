@@ -53,7 +53,7 @@ tracker@1.0.5
 ui@1.0.5
 underscore@1.0.2
 url@1.0.3
-vazco:autoform-universe-select@0.0.1
+vazco:universe-autoform-select@0.0.3
 webapp@1.1.6
 webapp-hashing@1.0.2
 zimme:select2-bootstrap3-css@1.4.1

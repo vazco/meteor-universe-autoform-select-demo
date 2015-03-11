@@ -10,8 +10,8 @@ insecure
 aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
-vazco:autoform-universe-select
 mrt:bootstrap-3
 natestrauser:select2
 zimme:select2-bootstrap3-css
 aldeed:autoform-select2
+vazco:universe-autoform-select
