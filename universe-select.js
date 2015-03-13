@@ -60,6 +60,9 @@ if (Meteor.isClient) {
     Template.hello.helpers({
         testObject: function () {
             return TestCollection.findOne();
+        },
+        debug: function () {
+            return false;
         }
     });
 }
