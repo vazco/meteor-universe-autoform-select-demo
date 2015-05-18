@@ -66,3 +66,11 @@ if (Meteor.isClient) {
         }
     });
 }
+
+OptionsCollection.before.insert(function (userId, doc) {
+    var opt = OptionsCollection.findOne({value: doc.value});
+    if(opt){
+        return false;
+    }
+    return true;
+});
