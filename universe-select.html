@@ -98,6 +98,7 @@
 
         {{> afFormGroup name="multiple" multiple=true remove_button=true}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
     <hr />
@@ -184,11 +185,17 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    Value: "{{testObject.create}}"
+                    Value: "{{testObject.remote}}"
                 </div>
             </div>
         </div>
     </div>
+
+    {{#autoForm id="remote" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="remote" multiple=true}}
+
+    {{/autoForm}}
 
     <br /><br /><br /><br />
     <br /><br /><br /><br />

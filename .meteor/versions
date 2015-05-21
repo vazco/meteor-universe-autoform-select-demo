@@ -24,6 +24,7 @@ insecure@1.0.3
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
+less@1.0.14
 livedata@1.0.13
 logging@1.0.7
 matb33:collection-hooks@0.7.13
@@ -52,7 +53,7 @@ tracker@1.0.7
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4
-vazco:universe-autoform-select@0.0.7
+vazco:universe-autoform-select@0.1.1
 webapp@1.2.0
 webapp-hashing@1.0.3
 wizonesolutions:underscore-string@1.0.0

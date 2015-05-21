@@ -39,6 +39,17 @@ TestCollection.attachSchema(new SimpleSchema({
                 options: options
             }
         }
+    },
+    remote: {
+        type: [String],
+        label: "remote",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "universe-select",
+                optionsMethod: "getOptions"
+            }
+        }
     }
 }));
 
@@ -52,6 +63,19 @@ if (Meteor.isServer) {
     Meteor.methods({
         insertOption: function (label, value) {
             OptionsCollection.insert({label: label, value: value});
+        },
+        getOptions: function (qry) {
+            this.unblock();
+            Meteor.wrapAsync(function (callback) {
+                Meteor.setTimeout(function () {
+                    callback();
+                }, 2000);
+            })();
+
+            if(qry){
+                return OptionsCollection.find({label: {$regex: qry}}, {limit: 5}).fetch();
+            }
+            return OptionsCollection.find({}, {limit: 5}).fetch();
         }
     });
 }
