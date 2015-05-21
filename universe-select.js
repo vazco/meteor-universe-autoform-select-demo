@@ -64,16 +64,21 @@ if (Meteor.isServer) {
         insertOption: function (label, value) {
             OptionsCollection.insert({label: label, value: value});
         },
-        getOptions: function (qry) {
+        getOptions: function (options) {
             this.unblock();
+            var searchText = options.searchText;
+            var values = options.values;
+
             Meteor.wrapAsync(function (callback) {
                 Meteor.setTimeout(function () {
                     callback();
                 }, 2000);
             })();
 
-            if(qry){
-                return OptionsCollection.find({label: {$regex: qry}}, {limit: 5}).fetch();
+            if (searchText) {
+                return OptionsCollection.find({label: {$regex: searchText}}, {limit: 5}).fetch();
+            } else if (values.length) {
+                return OptionsCollection.find({value: {$in: values}}).fetch();
             }
             return OptionsCollection.find({}, {limit: 5}).fetch();
         }
@@ -93,7 +98,7 @@ if (Meteor.isClient) {
 
 OptionsCollection.before.insert(function (userId, doc) {
     var opt = OptionsCollection.findOne({value: doc.value});
-    if(opt){
+    if (opt) {
         return false;
     }
     return true;
