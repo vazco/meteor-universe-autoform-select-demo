@@ -30,6 +30,7 @@
 
         {{> afFormGroup name="single" type="select"}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
 
@@ -41,6 +42,7 @@
 
         {{> afFormGroup name="single" type="select2"}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
     <hr/>
@@ -53,6 +55,7 @@
 
         {{> afFormGroup name="single"}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
 
@@ -75,6 +78,7 @@
 
         {{> afFormGroup name="multiple" type="select-multiple"}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
 
@@ -86,6 +90,7 @@
 
         {{> afFormGroup name="multiple" type="select2" multiple=true}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
     <hr/>
@@ -120,6 +125,7 @@
 
         {{> afFormGroup name="multiple" type="select-multiple"}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
 
@@ -131,6 +137,7 @@
 
         {{> afFormGroup name="multiple" type="select2" multiple=true}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
     <hr/>
@@ -167,6 +174,7 @@
 
         {{> afFormGroup name="create" multiple=true create=true createMethod='insertOption'}}
 
+        <button type="submit">Save</button>
     {{/autoForm}}
 
     <h4>universe-select without autosave</h4>
@@ -194,8 +202,30 @@
     {{#autoForm id="remote" collection="TestCollection" doc=testObject type="update" autosave=true}}
 
         {{> afFormGroup name="remote" multiple=true}}
+
         <button type="submit">Save</button>
     {{/autoForm}}
+
+    <div class="row">
+        <h3 class="text-primary col-sm-6">Related selects - with remoteOptions</h3>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Value1: "{{testObject.related1}}"<br />
+                    Value2: "{{testObject.related2}}"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{#autoForm id="related1" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="related1"}}
+        {{> afFormGroup name="related2" optionsMethodParams=testObject.related1}}
+
+        <button type="submit">Save</button>
+    {{/autoForm}}
+
 
     <br /><br /><br /><br />
     <br /><br /><br /><br />
