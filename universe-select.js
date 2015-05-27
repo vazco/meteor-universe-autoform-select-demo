@@ -85,7 +85,9 @@ if (Meteor.isServer) {
 
     Meteor.methods({
         insertOption: function (label, value) {
-            OptionsCollection.insert({label: label, value: value});
+            if(label && value){
+                OptionsCollection.insert({label: label, value: value});
+            }
         },
         getOptions: function (options) {
             this.unblock();
@@ -131,11 +133,10 @@ if (Meteor.isServer) {
                 }
 
             } else if (values.length) {
-                console.log('aaaa', values, params);
                 if (params) {
                     return OptionsRelatedCollection.find({value: {$in: values}, parent: params}).fetch();
                 } else {
-                    return OptionsRelatedCollection.find({value: {$in: values}}).fetch();
+                    return OptionsRelatedCollection.find({value: {$in: values}, parent: null}).fetch();
                 }
             }
 
