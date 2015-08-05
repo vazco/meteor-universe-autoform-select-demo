@@ -10,22 +10,22 @@ var options = function () {
 TestCollection.attachSchema(new SimpleSchema({
     single: {
         type: String,
-        label: "single",
+        label: 'single',
         optional: true,
         autoform: {
             afFieldInput: {
-                type: "universe-select",
+                type: 'universe-select',
                 options: options
             }
         }
     },
     multiple: {
         type: [String],
-        label: "multiple",
+        label: 'multiple',
         optional: true,
         autoform: {
             afFieldInput: {
-                type: "universe-select",
+                type: 'universe-select',
                 options: options
             }
         }
@@ -85,7 +85,7 @@ if (Meteor.isServer) {
 
     Meteor.methods({
         insertOption: function (label, value) {
-            if(label && value){
+            if (label && value) {
                 OptionsCollection.insert({label: label, value: value});
             }
         },
