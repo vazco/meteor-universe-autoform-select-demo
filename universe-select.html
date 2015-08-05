@@ -188,6 +188,18 @@
     {{/autoForm}}
 
 
+    <h4>universe-select create value without slug</h4>
+
+
+    {{#autoForm id="create3withoutSlug" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afFormGroup name="create" multiple=true create=true createSlug=false createMethod='insertOption'}}
+
+        <button type="submit">Save</button>
+    {{/autoForm}}
+
+
+
     <div class="row">
         <h3 class="text-primary col-sm-6">Multiple - with remoteOptions</h3>
         <div class="col-sm-6">
