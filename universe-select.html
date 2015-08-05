@@ -242,4 +242,17 @@
     <br /><br /><br /><br />
     <br /><br /><br /><br />
 
+    {{#autoForm collection="TestCollection" id="step2Form" type="insert" doc=user validation="keyup" autosave=true}}
+        {{> afQuickField name="multiple" create=true  type="universe-select" multiple=true}}
+        {{> afQuickField name="test"}}
+
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+        </div>
+    {{/autoForm}}
+
+    <br /><br /><br /><br />
+    <br /><br /><br /><br />
+
 </template>

@@ -30,6 +30,10 @@ TestCollection.attachSchema(new SimpleSchema({
             }
         }
     },
+    test: {
+        type: String,
+        label: 'test'
+    },
     create: {
         type: [String],
         label: "create",
@@ -181,6 +185,21 @@ if (Meteor.isServer) {
             OptionsRelatedCollection.insert({label: '2222BBBB', value: '2222BBBB', parent: '2222'});
             OptionsRelatedCollection.insert({label: '2222CCCC', value: '2222CCCC', parent: '2222'});
             OptionsRelatedCollection.insert({label: '3333test', value: '3333test', parent: '3333'});
+        }
+    });
+}
+
+
+if (Meteor.isClient) {
+    AutoForm.hooks({
+        step2Form: {
+            formToDoc: function (doc) {
+//// If a new condition is selected, set react var pcDiseaseSel to display disease related information (symptoms)
+                console.log('helloe', doc);
+
+//            //Session.set("pcDiseaseSel", doc.profile.conditions);
+//            return doc;
+            }
         }
     });
 }
