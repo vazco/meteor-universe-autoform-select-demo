@@ -4,7 +4,7 @@ OptionsRelatedCollection = new Mongo.Collection('optionsRelated');
 
 var options = function () {
     return OptionsCollection.find().fetch();
-}
+};
 
 
 TestCollection.attachSchema(new SimpleSchema({

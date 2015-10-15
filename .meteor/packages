@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 autopublish
 insecure
 aldeed:simple-schema
@@ -16,3 +15,17 @@ zimme:select2-bootstrap3-css
 aldeed:autoform-select2
 vazco:universe-autoform-select
 matb33:collection-hooks
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
