@@ -27,6 +27,18 @@ TestCollection.attachSchema(new SimpleSchema({
         autoform: {
             afFieldInput: {
                 type: 'universe-select',
+                options: options,
+                uniPlaceholder: 'Please select value'
+            }
+        }
+    },
+    createSingle: {
+        type: String,
+        label: "create",
+        optional: true,
+        autoform: {
+            afFieldInput: {
+                type: "universe-select",
                 options: options
             }
         }
@@ -78,12 +90,6 @@ TestCollection.attachSchema(new SimpleSchema({
 }));
 
 if (Meteor.isServer) {
-    Meteor.startup(function () {
-        if (!TestCollection.find().count()) {
-            TestCollection.insert({single: 'Test1', test2: 'Test2'});
-        }
-    });
-
     Meteor.methods({
         insertOption: function (label, value) {
             if (label && value) {
@@ -183,5 +189,33 @@ if (Meteor.isServer) {
             OptionsRelatedCollection.insert({label: '2222CCCC', value: '2222CCCC', parent: '2222'});
             OptionsRelatedCollection.insert({label: '3333test', value: '3333test', parent: '3333'});
         }
+
+        clearDatabase();
     });
+
+    var everyHour = new Cron(function() {
+        clearDatabase();
+    }, {
+        minute: 24
+    });
+
+    var clearDatabase = function () {
+        OptionsCollection.find().forEach(function (obj) {
+            OptionsCollection.remove(obj._id);
+        });
+
+        if (!OptionsCollection.find().count()) {
+            OptionsCollection.insert({label: 'Test1', value: 'Test1'});
+            OptionsCollection.insert({label: 'Test2', value: 'Test2'});
+            OptionsCollection.insert({label: 'Test3', value: 'Test3'});
+        }
+
+        TestCollection.find().forEach(function (obj) {
+            TestCollection.remove(obj._id);
+        });
+
+        if (!TestCollection.find().count()) {
+            TestCollection.insert({single: 'Test1', test2: 'Test2'});
+        }
+    }
 }

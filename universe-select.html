@@ -155,6 +155,25 @@
 
     <hr />
 
+    <div class="row">
+        <h3 class="text-primary col-sm-6">Single - allow to create new items</h3>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Value: "{{testObject.createSingle}}"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>universe-select</h4>
+
+    {{#autoForm id="create3autosave" collection="TestCollection" doc=testObject type="update" autosave=false}}
+
+        {{> afFormGroup name="createSingle" multiple=false create=true createMethod='insertOption'}}
+
+        <button type="submit">Save</button>
+    {{/autoForm}}
 
     <div class="row">
         <h3 class="text-primary col-sm-6">Multiple - allow to create new items</h3>
@@ -191,12 +210,12 @@
     <h4>universe-select create value without slug</h4>
 
 
-    {{#autoForm id="create3withoutSlug" collection="TestCollection" doc=testObject type="update" autosave=true}}
+    {{!-- #autoForm id="create3withoutSlug" collection="TestCollection" doc=testObject type="update" autosave=true}}
 
         {{> afFormGroup name="create" multiple=true create=true createSlug=false createMethod='insertOption'}}
 
         <button type="submit">Save</button>
-    {{/autoForm}}
+    {{/autoForm --}}
 
 
 

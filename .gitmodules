@@ -7,3 +7,6 @@
 [submodule "packages/meteor-autoform-select2"]
 	path = packages/meteor-autoform-select2
 	url = https://github.com/aldeed/meteor-autoform-select2.git
+[submodule "packages/universe-selectize"]
+	path = packages/universe-selectize
+	url = https://github.com/vazco/meteor-universe-selectize.git
