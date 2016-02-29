@@ -165,6 +165,15 @@ if (Meteor.isClient) {
             return false;
         }
     });
+
+    Template.hello.events({
+        'click .js-reset-multiple3': function () {
+            var testObj = TestCollection.findOne();
+            TestCollection.update(testObj._id, {$set: {multiple: []}});
+            AutoForm.resetForm('multiple3');
+            return false;
+        }
+    });
 }
 
 OptionsCollection.before.insert(function (userId, doc) {
