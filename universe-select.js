@@ -16,7 +16,8 @@ TestCollection.attachSchema(new SimpleSchema({
             afFieldInput: {
                 type: 'universe-select',
                 options: options,
-                uniPlaceholder: 'Please select value'
+                uniPlaceholder: 'Please select value',
+                optionsPlaceholder: true
             }
         }
     },
@@ -28,7 +29,8 @@ TestCollection.attachSchema(new SimpleSchema({
             afFieldInput: {
                 type: 'universe-select',
                 options: options,
-                uniPlaceholder: 'Please select value'
+                uniPlaceholder: 'Please select value',
+                optionsPlaceholder: 'Unselect all'
             }
         }
     },
