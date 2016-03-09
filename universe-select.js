@@ -16,7 +16,7 @@ TestCollection.attachSchema(new SimpleSchema({
             afFieldInput: {
                 type: 'universe-select',
                 options: options,
-                uniPlaceholder: 'Please select value',
+                uniPlaceholder: 'Select',
                 optionsPlaceholder: true
             }
         }

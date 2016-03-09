@@ -74,7 +74,7 @@ ui@1.0.8
 underscore@1.0.4
 url@1.0.5
 vazco:universe-autoform-select@0.3.4
-vazco:universe-selectize@0.1.8
+vazco:universe-selectize@0.1.9
 webapp@1.2.3
 webapp-hashing@1.0.5
 zimme:select2-bootstrap3-css@1.4.6
