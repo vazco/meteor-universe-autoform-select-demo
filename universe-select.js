@@ -7,6 +7,25 @@ var options = function () {
 };
 
 
+var yearsSchema = new SimpleSchema({
+    years: {
+        type: [String],
+        autoform: {
+            type: 'universe-select',
+            afFieldInput: {
+                multiple: true,
+                options: function () {
+                    return [
+                        {label: "2013", value: 2013},
+                        {label: "2014", value: 2014},
+                        {label: "2015", value: 2015}
+                    ];
+                }
+            }
+        }
+    }
+});
+
 TestCollection.attachSchema(new SimpleSchema({
     single: {
         type: String,
@@ -80,16 +99,36 @@ TestCollection.attachSchema(new SimpleSchema({
     },
     related2: {
         type: String,
-        label: "related2",
+        label: 'related2',
         optional: true,
         autoform: {
             afFieldInput: {
-                type: "universe-select",
-                optionsMethod: "getOptionsRelated"
+                type: 'universe-select',
+                optionsMethod: 'getOptionsRelated'
             }
         }
+    },
+    'array1': {
+        type: [Object],
+        optional: true
+    },
+    'array1.$.text1': {
+        type: String
+    },
+    'array1.$.text2': {
+        type: String,
+        autoform: {
+            afFieldInput: {
+                type: 'universe-select',
+                options: options
+            }
+        }
+    },
+    'array1.$.text3': {
+        type: [yearsSchema]
     }
 }));
+
 
 if (Meteor.isServer) {
     Meteor.methods({

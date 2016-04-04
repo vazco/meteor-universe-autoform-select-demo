@@ -259,6 +259,38 @@
     {{/autoForm}}
 
 
+    <div class="row">
+        <h3 class="text-primary col-sm-6">Array of objects</h3>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    Value: [<br />
+                    {{#each testObject.array1}}
+                        &nbsp;&nbsp; {<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; val1: {{text1}}, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; val2: {{text2}}, <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp; val3: [
+                            {{#each text3}}
+                                {{years}},
+                            {{/each}}
+                            ]<br />
+                        &nbsp;&nbsp; },<br />
+                    {{/each}}
+                    ]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{#autoForm id="array1" collection="TestCollection" doc=testObject type="update" autosave=true}}
+
+        {{> afQuickField name="array1"}}
+
+        <button type="submit">Save</button>
+    {{/autoForm}}
+
+
+
     <br /><br /><br /><br />
     <br /><br /><br /><br />
 
