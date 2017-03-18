@@ -231,7 +231,7 @@
         </div>
     </div>
 
-    {{#autoForm id="remote" collection="TestCollection" doc=testObject type="update" autosave=true}}
+    {{#autoForm id="remote" collection="TestCollection" doc=testObject type="update" autosave=true placeholder="Please select values"}}
 
         {{> afFormGroup name="remote" multiple=true}}
 
@@ -250,7 +250,7 @@
         </div>
     </div>
 
-    {{#autoForm id="related1" collection="TestCollection" doc=testObject type="update" autosave=true}}
+    {{#autoForm id="related1" collection="TestCollection" doc=testObject type="update" autosave=true placeholder="Please select value"}}
 
         {{> afFormGroup name="related1"}}
         {{> afFormGroup name="related2" optionsMethodParams=testObject.related1}}
